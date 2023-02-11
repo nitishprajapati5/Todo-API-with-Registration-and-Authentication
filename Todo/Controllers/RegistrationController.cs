@@ -9,7 +9,7 @@ using Todo.Models;
 namespace Todo.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Registration")]
     public class RegistrationController : Controller
     {
         private readonly IDataService _dataService;

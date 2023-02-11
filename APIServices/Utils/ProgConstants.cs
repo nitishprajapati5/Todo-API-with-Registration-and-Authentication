@@ -21,6 +21,7 @@ namespace APIServices.Utils
     public class ProcedureConstants
     {
         public const string GetRegistrationDetails = "GetRegistrationDetails";
+        public const string PostList = "PostList";
     }
 
 }

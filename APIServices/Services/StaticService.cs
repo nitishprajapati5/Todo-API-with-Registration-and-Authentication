@@ -1,5 +1,6 @@
 ﻿using APIServices.Interfaces;
 using APIServices.Models;
+using APIServices.Models.Request;
 using APIServices.Utils;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,12 @@ namespace APIServices.Services
     {
         public readonly IDataService _dataService;
         public readonly IRegistrationServices _registrationService;
-
-        public StaticService(IDataService dataService, IRegistrationServices registrationService)
+        public readonly ITodoList _todolist;
+        public StaticService(IDataService dataService, IRegistrationServices registrationService,ITodoList todoList)
         {
             _dataService = dataService;
             _registrationService = registrationService;
+            _todolist = todoList;
         }
 
         public async Task<int?> ExecuteNonQuery<T>(T obj)
@@ -85,6 +87,11 @@ namespace APIServices.Services
                 {
                     return await _registrationService.GetRegistrationDetails<T>(Spname, obj as Registration);
                 }
+                if(Spname == ProcedureConstants.PostList)
+                {
+                    return await _todolist.PostList<T>(Spname, obj as TodoList);
+                }
+
                 return null;
             }
             catch (Exception)

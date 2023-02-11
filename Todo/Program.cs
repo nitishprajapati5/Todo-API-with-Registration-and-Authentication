@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IDataService, DataServices>();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<IRegistrationServices, RegistrationService>();
+builder.Services.AddTransient<ITodoList, TodoListService>();
 builder.Services.AddTransient<APIServices.UnitOfWork>();
 builder.Services.AddTransient<APIServices.Services.StaticService>();
 builder.Services.Configure<AppConfig>(builder.Configuration.GetSection("AppConfig"));
